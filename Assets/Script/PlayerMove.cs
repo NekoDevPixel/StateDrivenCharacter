@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.iOS;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class PlayerMove : MonoBehaviour
     Vector2 InputVec2;
     private bool jumpCheck;
     private Animator animator;
+    bool chsit = false;
 
     void Awake()
     {
@@ -22,6 +24,13 @@ public class PlayerMove : MonoBehaviour
         rb.linearVelocity = new Vector2(InputVec2.x * speed, rb.linearVelocity.y);
         LeftandRight();
         animator.SetFloat("run", Mathf.Abs(InputVec2.x));//변화하는 x좌표의 절대값을 인스펙터에서 비교
+        
+    }
+
+    void Update()
+    {
+        CheckSit();
+        HandleSlideInput();
     }
 
     void OnMove(InputValue value){
@@ -62,8 +71,34 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // void jumpAnim(){
-    //     if()
-    //     animator.SetBool("jump",true);
-    // }
+    void CheckSit(){
+        
+        // if(Input.GetKeyDown(KeyCode.C) && chsit == false){
+        //     chsit = true;
+        //     animator.SetBool("sit",true);
+        // }
+        // else if(Input.GetKeyDown(KeyCode.C) && chsit == true){
+        //     chsit = false;
+        //     animator.SetBool("sit",false);
+        // }
+        //내가 직접 작성한 코드
+        //를 바탕으로 ChatGPT가 수정해준 코드
+        if (Input.GetKeyDown(KeyCode.C)) {
+            chsit = !chsit; // true면 false로, false면 true로
+            animator.SetBool("sit", chsit);
+            Debug.Log("C 키 눌림 - 상태: " + chsit);
+        }
+    }
+
+    void HandleSlideInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            animator.SetBool("slide", true);
+        }
+        else if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetBool("slide", false);
+        }
+    }
 }
