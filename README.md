@@ -19,3 +19,8 @@
   
   ![slide_sit](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/slide_sit.gif?raw=true)
 </p>
+<p>
+  <b>기본 공격 애니메이션</b> : 마우스 왼쪽클릭으로 총 공격애니메이션은 세개로 클릭당 공격1,공격2,공격3순으로 애니메이션이 작동, 마우스 클릭 후에 다음 공격으로 넘어가지않으면 다시 Idle상태로 돌아간다<br>
+  
+  ![basic_attack](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/basic_attack.gif?raw=true)
+</p>
