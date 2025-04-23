@@ -22,5 +22,10 @@
 <p>
   <b>기본 공격 애니메이션</b> : 마우스 왼쪽클릭으로 총 공격애니메이션은 세개로 클릭당 공격1,공격2,공격3순으로 애니메이션이 작동, 마우스 클릭 후에 다음 공격으로 넘어가지않으면 다시 Idle상태로 돌아간다<br>
   
-  ![basic_attack](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/basic_attack.gif?raw=true)
+  ![basic_attack](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/new_attack.gif?raw=true)
+</p>
+<p>
+  <b>암벽등반 애니메이션</b> : 벽에 있는 암벽트리거에 플레이어와 접촉이 생기고 w,s키다운으로 인한 위치변화가 생기면 암벽등반 애니메이션이 작동되고 등반 중 KeyUP이 되면 암벽등반은 하고있지만 움직이지않은 모션이 작동된다<br>
+  
+  ![climb](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/climb.gif?raw=true)
 </p>
