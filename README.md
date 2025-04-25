@@ -1,31 +1,65 @@
-## StateDrivenCharacter
+# 🎮 StateDrivenCharacter
 
-사용한 캐릭터 에셋 : 
-<a href="https://rvros.itch.io/animated-pixel-hero">https://rvros.itch.io/animated-pixel-hero</a>
+## 🧍 사용한 캐릭터 에셋
 
-### 2025/04/18
-<b>방향키</b> : W,D
-<b>점프키</b> : Space <br>
-<b>Input System</b>을 사용하여 움직임을 구현<br><b>달리기 애니메이션</b> : SetFloat를 사용하여 2D 방향 입력 벡터의 절대값이 0.01보다 크면 애니메이션이 작동을 하고 0.01보다 작으면 Idle상태로 돌아간다<br>
-<b>점프 애니메이션</b> : SetBool를 사용하여 Space키를 누르면 bool jump가 true가 되어 애니메이션이 작동, 점프를 한 후에 지면에 닿아 충돌이 발생되면 false로 변하여 Idel상태로 돌아간다,<br>
+- [Animated Pixel Hero by rvros](https://rvros.itch.io/animated-pixel-hero)
 
-<p>
+---
 
-  ![run_jump](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/run_jump.gif?raw=true)
-</p>
-<p>
-  <b>앉기 애니메이션</b> : C키를 ON/OFF형식으로 SetBool형식으로 작동<br>
-  <b>슬라이딩 애니메이션</b> : SetBool형식으로 Shift키가 KeyDown되면 작동 KeyUp되면 해제<br>
-  
-  ![slide_sit](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/slide_sit.gif?raw=true)
-</p>
-<p>
-  <b>기본 공격 애니메이션</b> : 마우스 왼쪽클릭으로 총 공격애니메이션은 세개로 클릭당 공격1,공격2,공격3순으로 애니메이션이 작동, 마우스 클릭 후에 다음 공격으로 넘어가지않으면 다시 Idle상태로 돌아간다<br>
-  
-  ![basic_attack](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/new_attack.gif?raw=true)
-</p>
-<p>
-  <b>암벽등반 애니메이션</b> : 벽에 있는 암벽트리거에 플레이어와 접촉이 생기고 w,s키다운으로 인한 위치변화가 생기면 암벽등반 애니메이션이 작동되고 등반 중 KeyUP이 되면 암벽등반은 하고있지만 움직이지않은 모션이 작동된다<br>
-  
-  ![climb](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/climb.gif?raw=true)
-</p>
+## 🛠️ 2025/04/18 개발 기능
+
+### 🎮 기본 조작
+
+- **이동 키**: `W`, `D`  
+- **점프 키**: `Space`  
+- **앉기 키**: `C` (토글 형식)  
+- **슬라이딩 키**: `Shift` (KeyDown → 활성화, KeyUp → 해제)  
+- **공격**: 마우스 왼쪽 클릭 (총 3단계 연속 공격)  
+
+---
+
+### 🎞️ 애니메이션 동작 설명
+
+#### 🏃‍♂️ 달리기 & 점프
+
+- `Input System`을 사용하여 움직임 구현  
+- **달리기 애니메이션**:  
+  `SetFloat` → 입력 벡터의 절대값이 `0.01`보다 크면 실행  
+  작으면 Idle 상태로 복귀  
+- **점프 애니메이션**:  
+  `SetBool` → `Space` 키 누르면 `jump = true`  
+  지면에 충돌 시 `jump = false`  
+
+![run_jump](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/run_jump.gif?raw=true)
+
+---
+
+#### 🧎‍♂️ 앉기 & 슬라이딩
+
+- **앉기 애니메이션**:  
+  `SetBool`을 사용, `C` 키로 ON/OFF 전환  
+- **슬라이딩 애니메이션**:  
+  `Shift` KeyDown 시 `SetBool = true`, KeyUp 시 `false`  
+
+![slide_sit](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/slide_sit.gif?raw=true)
+
+---
+
+#### 🔫 기본 공격
+
+- 마우스 왼쪽 클릭으로 3단계 공격 애니메이션 실행  
+- 클릭당 `공격1 → 공격2 → 공격3`  
+- 연속 입력이 없으면 Idle 상태로 복귀  
+
+![basic_attack](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/new_attack.gif?raw=true)
+
+---
+
+#### 🧗 암벽등반
+
+- 플레이어가 **암벽 트리거에 접촉**하고  
+  `W`, `S` 키로 위치 변화가 있을 때  
+  **등반 애니메이션** 실행  
+- KeyUp 시 → 정지한 등반 모션 실행  
+
+![climb](https://github.com/NekoDevPixel/StateDrivenCharacter/blob/main/Assets/explay/climb.gif?raw=true)
